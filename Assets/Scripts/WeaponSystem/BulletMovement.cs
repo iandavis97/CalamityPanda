@@ -9,17 +9,17 @@ public class BulletMovement : MonoBehaviour {
     private float life;
     private BulletPool pool;
 
-    private CharacterController controller;
+    private Rigidbody2D rigid;
 
 	// Use this for initialization
 	void Start () {
-        controller = GetComponent<CharacterController>();
+        rigid = GetComponent<Rigidbody2D>();
+        rigid.velocity = velocity;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         life -= Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
         if (life <= 0)
         {
             if (pool != null)
@@ -39,10 +39,20 @@ public class BulletMovement : MonoBehaviour {
         this.velocity = velocity;
         this.damage = damage;
         life = lifespan;
+        if(rigid != null)
+        {
+            rigid.velocity = velocity;
+        }
     }
 
     public void SetPool(BulletPool pool)
     {
         this.pool = pool;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        life /= 2;
+        // Do Damage
     }
 }

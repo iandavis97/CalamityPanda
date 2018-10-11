@@ -17,7 +17,7 @@ public class BulletPool : MonoBehaviour {
     private Stack<GameObject> free;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         PoolDirectory[Bullet] = this;
         free = new Stack<GameObject>();
         for (int i = 0; i < InitialSize; i++)

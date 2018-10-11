@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4685083000951066}
   - component: {fileID: 33431011267223324}
   - component: {fileID: 23425268168872496}
-  - component: {fileID: 65716903060753420}
+  - component: {fileID: 58299388129603630}
   - component: {fileID: 114414163018992972}
   m_Layer: 0
   m_Name: TestGun
@@ -158,18 +158,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966239337640040}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65716903060753420
-BoxCollider:
+--- !u!58 &58299388129603630
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1737269172757990}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2
 --- !u!114 &114414163018992972
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,7 +18,7 @@ public class WeaponPickup : MonoBehaviour {
     // Internal Properties
     private int currentAmmo;
     private float coolDown = 0;
-    private bool held;
+    private bool held = false;
     private BulletPool pool;
 
 
@@ -43,7 +43,6 @@ public class WeaponPickup : MonoBehaviour {
         {
             coolDown -= Time.deltaTime;
         }
-        Fire();
 	}
 
     public bool Fire()
@@ -101,7 +100,7 @@ public class WeaponPickup : MonoBehaviour {
 
     public bool TryHold()
     {
-        if(held)
+        if(!held)
         {
             held = true;
             return true;
