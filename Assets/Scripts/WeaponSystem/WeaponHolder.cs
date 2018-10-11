@@ -58,7 +58,7 @@ public class WeaponHolder : MonoBehaviour {
         return false;
     }
 
-    public bool Grab(WeaponPickup weapon)
+    private bool Grab(WeaponPickup weapon)
     {
         if(weapon.TryHold())
         {
