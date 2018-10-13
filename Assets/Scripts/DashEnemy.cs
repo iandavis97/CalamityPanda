@@ -51,7 +51,7 @@ public class DashEnemy : MonoBehaviour
         //rb.velocity = Vector3.zero;
         while (Vector3.Dot(displacementVec, destination - transform.position) > 0)
         {
-            controller.SimpleMove(Vector3.up);
+            controller.SimpleMove(Vector3.zero);
             yield return null;
         }
     }
