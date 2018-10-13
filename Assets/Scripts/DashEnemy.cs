@@ -5,14 +5,14 @@ using UnityEngine;
 public class DashEnemy : MonoBehaviour
 {
     [SerializeField]
-    [Range(0.0f, 1.0f)]
-    float speed = 0.5f;
+    [Range(0.0f, 0.3f)]
+    float speed = 0.3f;
     static protected Player playerRef;
-    Rigidbody2D rb;
+    CharacterController controller;
     // Use this for initialization
     void Start ()
     {
-        rb = GetComponent<Rigidbody2D>();
+        controller = GetComponent<CharacterController>();
         if (playerRef == null)
         {
             playerRef = GameObject.Find("Player").GetComponent<Player>();
@@ -24,30 +24,19 @@ public class DashEnemy : MonoBehaviour
     {
         Vector3 deltaPosition = playerRef.transform.position - transform.position;
         transform.up = deltaPosition;
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            StartCoroutine(Dash());
-        }
-    }
+        StartCoroutine(Dash());
+            }
 
     IEnumerator Dash()
     {
         Vector3 displacementVec = playerRef.transform.position - transform.position;
-        Vector3 destination = playerRef.transform.position;
-        //float sqrDistance = Vector3.SqrMagnitude(destination - transform.position);
-        //float deltaLerp = 1.0f / sqrDistance;
-        //for (float f = 0; f < 1.0f; f += this.speed / sqrDistance)
-        //{
-        //    transform.position = Vector3.Lerp(transform.position, destination, f);
-        //    yield return null;
-
-        //}
-        rb.velocity = displacementVec.normalized * speed;
-        
+        Vector3 destination = playerRef.transform.position;        
         while (Vector3.Dot(displacementVec, destination - transform.position) > 0)
         {
+            controller.Move(displacementVec.normalized * speed);
             yield return null;
         }
-        rb.velocity = Vector3.zero;
+        yield return new WaitForSeconds(3);
+        StartCoroutine(Dash());
     }
 }
