@@ -8,7 +8,12 @@ public class DashEnemy : MonoBehaviour
     [Range(0.0f, 0.3f)]
     float speed = 0.3f;
     static protected Player playerRef;
+    float dashTimer = 0;
+    [SerializeField]
+    float dashInterval;
+    bool isDashing = false;
     CharacterController controller;
+    
     // Use this for initialization
     void Start ()
     {
@@ -22,13 +27,22 @@ public class DashEnemy : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        if (!isDashing)
+        {
+            dashTimer += Time.deltaTime;
+        }
         Vector3 deltaPosition = playerRef.transform.position - transform.position;
         transform.up = deltaPosition;
-        StartCoroutine(Dash());
-            }
+        if (dashTimer >= dashInterval)
+        {
+            StartCoroutine(Dash());
+            dashTimer = 0;
+        }
+    }
 
     IEnumerator Dash()
     {
+        isDashing = true;
         Vector3 displacementVec = playerRef.transform.position - transform.position;
         Vector3 destination = playerRef.transform.position;        
         while (Vector3.Dot(displacementVec, destination - transform.position) > 0)
@@ -36,7 +50,6 @@ public class DashEnemy : MonoBehaviour
             controller.Move(displacementVec.normalized * speed);
             yield return null;
         }
-        yield return new WaitForSeconds(3);
-        StartCoroutine(Dash());
+        isDashing = false;
     }
 }
