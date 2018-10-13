@@ -8,11 +8,11 @@ public class DashEnemy : MonoBehaviour
     [Range(0.0f, 1.0f)]
     float speed = 0.5f;
     static protected Player playerRef;
-    Rigidbody2D rb;
+    CharacterController controller;
     // Use this for initialization
     void Start ()
     {
-        rb = GetComponent<Rigidbody2D>();
+        controller = GetComponent<CharacterController>();
         if (playerRef == null)
         {
             playerRef = GameObject.Find("Player").GetComponent<Player>();
@@ -42,12 +42,17 @@ public class DashEnemy : MonoBehaviour
         //    yield return null;
 
         //}
-        rb.velocity = displacementVec.normalized * speed;
-        
+        //rb.velocity = displacementVec.normalized * speed;
+
+        //while (Vector3.Dot(displacementVec, destination - transform.position) > 0)
+        //{
+        //    yield return null;
+        //}
+        //rb.velocity = Vector3.zero;
         while (Vector3.Dot(displacementVec, destination - transform.position) > 0)
         {
+            controller.SimpleMove(Vector3.up);
             yield return null;
         }
-        rb.velocity = Vector3.zero;
     }
 }
