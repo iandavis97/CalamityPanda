@@ -28,7 +28,7 @@ public class BulletMovement : MonoBehaviour {
             }
             else
             {
-                Destroy(this);
+                Destroy(gameObject);
             }
         }
     }

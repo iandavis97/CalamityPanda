@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    CharacterController control;
+    Rigidbody2D control;
     [SerializeField] float speed;
 
     // Public so that we can have the component on a different transform
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        control = GetComponent<CharacterController>();
+        control = GetComponent<Rigidbody2D>();
         if(Weapon == null)
         {
             Weapon = GetComponent<WeaponHolder>();
@@ -23,23 +23,26 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        control.velocity = Vector2.zero;
 		if (Input.GetKey(KeyCode.W))
         {
-            control.Move(Vector3.up * Time.deltaTime * speed);
+            control.velocity += Vector2.up;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            control.Move(-Vector3.right * Time.deltaTime * speed);
+            control.velocity -= Vector2.right;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            control.Move(-Vector3.up * Time.deltaTime * speed);
+            control.velocity -= Vector2.up;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            control.Move(Vector3.right * Time.deltaTime * speed);
+            control.velocity += Vector2.right;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        control.velocity = Vector3.ClampMagnitude(control.velocity, 1) * speed;
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Weapon.TryPickUp();
         }
