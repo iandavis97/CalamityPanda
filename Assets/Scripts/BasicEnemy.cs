@@ -7,7 +7,7 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField]
     float speed = 5;
     static protected Player playerRef;
-    CharacterController controller;
+    Rigidbody2D controller;
     public WeaponHolder Weapon;
     float fireTimer = 0;
     [SerializeField]
@@ -15,7 +15,7 @@ public class BasicEnemy : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<Rigidbody2D>();
 		if (playerRef == null)
         {
             playerRef = GameObject.Find("Player").GetComponent<Player>();
@@ -29,15 +29,19 @@ public class BasicEnemy : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Vector3 deltaPosition = playerRef.transform.position - transform.position;
-        transform.up = deltaPosition;
-        controller.Move(deltaPosition.normalized * speed * Time.deltaTime);
-        fireTimer += Time.deltaTime;
-        Weapon.transform.forward = transform.up;
-        if (fireTimer >= fireInterval)
+        // If the player dies, he will be null according to Unity
+        if (playerRef != null)
         {
-            fireTimer = 0;
-            Weapon.TryFire();
+            Vector3 deltaPosition = playerRef.transform.position - transform.position;
+            transform.up = deltaPosition;
+            controller.velocity = deltaPosition.normalized * speed;
+            fireTimer += Time.deltaTime;
+            Weapon.transform.forward = transform.up;
+            if (fireTimer >= fireInterval)
+            {
+                fireTimer = 0;
+                Weapon.TryFire();
+            }
         }
 	}
 }

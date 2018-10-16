@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour {
-
     public GameObject StartingWeapon;
     public WeaponPickup CurrentWeapon;
     private Collider2D pickUpCollider;
 
-	// Use this for initialization
-	void Awake () {
+    public bool Player = false;
+
+    // Use this for initialization
+    void Awake () {
         if (CurrentWeapon != null)
         {
             Grab(CurrentWeapon);
@@ -36,7 +37,7 @@ public class WeaponHolder : MonoBehaviour {
     {
         if(Holding())
         {
-            return CurrentWeapon.Fire();
+            return CurrentWeapon.Fire(Player ? 8 : 12);
         }
         return false;
     }
@@ -76,5 +77,16 @@ public class WeaponHolder : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public void Release()
+    {
+        if (CurrentWeapon != null)
+        {
+            CurrentWeapon.Release();
+            CurrentWeapon.transform.parent = null;
+            CurrentWeapon.transform.position = transform.position;
+            CurrentWeapon.transform.localRotation = transform.rotation;
+        }
     }
 }

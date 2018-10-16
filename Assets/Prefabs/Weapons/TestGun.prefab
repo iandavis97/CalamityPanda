@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23425268168872496}
   - component: {fileID: 58299388129603630}
   - component: {fileID: 114414163018992972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4884307791983178}
   - component: {fileID: 33500740527805060}
   - component: {fileID: 23654140702604274}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - Bullet
+  - PlayerBullet
   - Weapon
   - Interact
   - IgnoreBullets
-  - 
-  - 
-  - 
+  - EnemyBullet
+  - Player
+  - Enemy
   - 
   - 
   - 

@@ -15,6 +15,10 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Track.transform.position + new Vector3(0, 0, -DepthAway);
-	}
+        // If the player dies, he will be null according to Unity
+        if (Track != null)
+        {
+            transform.position = Track.transform.position + new Vector3(0, 0, -DepthAway);
+        }
+    }
 }

@@ -12,12 +12,12 @@ public class DashEnemy : MonoBehaviour
     [SerializeField]
     float dashInterval;
     bool isDashing = false;
-    CharacterController controller;
+    Rigidbody2D controller;
     
     // Use this for initialization
     void Start ()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<Rigidbody2D>();
         if (playerRef == null)
         {
             playerRef = GameObject.Find("Player").GetComponent<Player>();
@@ -27,16 +27,20 @@ public class DashEnemy : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (!isDashing)
+        // If the player dies, he will be null according to Unity
+        if (playerRef != null)
         {
-            dashTimer += Time.deltaTime;
-        }
-        Vector3 deltaPosition = playerRef.transform.position - transform.position;
-        transform.up = deltaPosition;
-        if (dashTimer >= dashInterval)
-        {
-            StartCoroutine(Dash());
-            dashTimer = 0;
+            if (!isDashing)
+            {
+                dashTimer += Time.deltaTime;
+            }
+            Vector3 deltaPosition = playerRef.transform.position - transform.position;
+            transform.up = deltaPosition;
+            if (dashTimer >= dashInterval)
+            {
+                StartCoroutine(Dash());
+                dashTimer = 0;
+            }
         }
     }
 
@@ -47,7 +51,7 @@ public class DashEnemy : MonoBehaviour
         Vector3 destination = playerRef.transform.position;        
         while (Vector3.Dot(displacementVec, destination - transform.position) > 0)
         {
-            controller.Move(displacementVec.normalized * speed);
+            controller.velocity = displacementVec.normalized * speed;
             yield return null;
         }
         isDashing = false;

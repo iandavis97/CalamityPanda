@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4200556838877652}
   - component: {fileID: 114751426641201056}
   - component: {fileID: 58452471650043638}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,10 @@ GameObject:
   - component: {fileID: 50609374557081782}
   - component: {fileID: 114504100015904426}
   - component: {fileID: 58380396346855486}
-  m_Layer: 0
+  - component: {fileID: 114791997877816936}
+  m_Layer: 13
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +152,19 @@ MonoBehaviour:
   StartingWeapon: {fileID: 1737269172757990, guid: 4c21c40802c3b9e41bc293977122adc2,
     type: 2}
   CurrentWeapon: {fileID: 0}
+  Player: 1
+--- !u!114 &114791997877816936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516864720588450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
 --- !u!212 &212101427334374570
 SpriteRenderer:
   m_ObjectHideFlags: 1

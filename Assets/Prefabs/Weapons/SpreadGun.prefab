@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4574089786912140}
   - component: {fileID: 33764291807587120}
   - component: {fileID: 23370027838882346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23557230527620878}
   - component: {fileID: 58259984590537766}
   - component: {fileID: 114924658426094164}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpreadGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   BulletSpeed: 20
   Range: 15
   Spread: 10
-  RateOfFire: 0.1
+  RateOfFire: 0.2
   MaxAmmo: -1
-  Volley: 10
+  Volley: 5
   Damage: 1

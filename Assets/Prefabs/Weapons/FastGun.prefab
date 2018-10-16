@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23118288666133974}
   - component: {fileID: 58478411445245412}
   - component: {fileID: 114789932667889046}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FastGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4780626120936336}
   - component: {fileID: 33819768195126898}
   - component: {fileID: 23053789820356298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
