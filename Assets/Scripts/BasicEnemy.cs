@@ -10,38 +10,71 @@ public class BasicEnemy : MonoBehaviour
     Rigidbody2D controller;
     public WeaponHolder Weapon;
     float fireTimer = 0;
+    static GameObject parrySpriteRef;
+    GameObject parrySpriteClone;
     [SerializeField]
     float fireInterval = 2;
+    [SerializeField]
+    float parrySpriteDeltaHeight = 1;
+    bool isParried = false;
 	// Use this for initialization
 	void Start ()
     {
-        controller = GetComponent<Rigidbody2D>();
-		if (playerRef == null)
+        if (!isParried)
         {
-            playerRef = GameObject.Find("Player").GetComponent<Player>();
-        }
-        if (Weapon == null)
-        {
-            Weapon = GetComponent<WeaponHolder>();
+            controller = GetComponent<Rigidbody2D>();
+            if (playerRef == null)
+            {
+                playerRef = GameObject.Find("Player").GetComponent<Player>();
+            }
+            if (Weapon == null)
+            {
+                Weapon = GetComponent<WeaponHolder>();
+            }
+            if (parrySpriteRef == null)
+            {
+                parrySpriteRef = Resources.Load<GameObject>("ParrySprite");
+            }
+            parrySpriteClone = Instantiate(parrySpriteRef);
         }
     }
 
     // Update is called once per frame
     void Update ()
     {
-        // If the player dies, he will be null according to Unity
-        if (playerRef != null)
+        if (!isParried)
         {
-            Vector3 deltaPosition = playerRef.transform.position - transform.position;
-            transform.up = deltaPosition;
-            controller.velocity = deltaPosition.normalized * speed;
-            fireTimer += Time.deltaTime;
-            Weapon.transform.forward = transform.up;
-            if (fireTimer >= fireInterval)
+            // If the player dies, he will be null according to Unity
+            if (playerRef != null)
             {
-                fireTimer = 0;
-                Weapon.TryFire();
+                Vector3 deltaPosition = playerRef.transform.position - transform.position;
+                transform.up = deltaPosition;
+                controller.velocity = deltaPosition.normalized * speed;
+                fireTimer += Time.deltaTime;
+                Weapon.transform.forward = transform.up;
+                if (fireTimer >= fireInterval)
+                {
+                    fireTimer = 0;
+                    Weapon.TryFire();
+                }
             }
+            parrySpriteClone.transform.position = this.transform.position + Vector3.up * parrySpriteDeltaHeight;
+        }
+        else
+        {
+            controller.velocity = Vector2.zero;
         }
 	}
+
+    public void TryParry()
+    {
+        isParried = true;
+        StartCoroutine(ResetParry());
+    }
+
+    IEnumerator ResetParry()
+    {
+        yield return new WaitForSeconds(3);
+        isParried = false;
+    }
 }

@@ -46,12 +46,21 @@ public class Player : MonoBehaviour
         {
             Weapon.TryPickUp();
         }
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             Vector3 mouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition));
             mouse.z = 0;
             Weapon.transform.LookAt(mouse);
             Weapon.TryFire();
+        }
+        if (Input.GetMouseButton(1))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up * 1.2f, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+            BasicEnemy possibleEnemy = hit.collider.transform.parent.GetComponent<BasicEnemy>();
+            if (possibleEnemy != null)
+            {
+                possibleEnemy.TryParry();
+            }
         }
     }
 }
