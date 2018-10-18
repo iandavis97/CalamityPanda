@@ -3,11 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour {
+    private enum CombatState
+    {
+        Waiting = 0,
+        Striking = 1,
+        StartUp = 2,
+    }
+
     public GameObject StartingWeapon;
     public WeaponPickup CurrentWeapon;
     private Collider2D pickUpCollider;
 
+    public Collider2D MeleeHitbox;
+    public float StartUp;
+    public float ActiveFrames = .5f;
+    public int MeleeDamage;
+
     public bool Player = false;
+    private CombatState current;
+    private float timer;
 
     // Use this for initialization
     void Awake () {
@@ -25,7 +39,16 @@ public class WeaponHolder : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+        if (current != CombatState.Waiting)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                current--;
+                timer = ActiveFrames;
+                MeleeHitbox.enabled = current == CombatState.Striking;
+            }
+        }
 	}
 
     public bool Holding()
@@ -38,6 +61,12 @@ public class WeaponHolder : MonoBehaviour {
         if(Holding())
         {
             return CurrentWeapon.Fire(Player ? 8 : 12);
+        }
+        else if (MeleeHitbox != null && current == CombatState.Waiting)
+        {
+            current = CombatState.StartUp;
+            timer = StartUp;
+            return true;
         }
         return false;
     }

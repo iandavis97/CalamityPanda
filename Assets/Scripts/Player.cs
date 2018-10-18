@@ -48,9 +48,9 @@ public class Player : MonoBehaviour
         }
         if(Input.GetMouseButton(0))
         {
-            Vector3 mouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            mouse.z = 0;
-            Weapon.transform.LookAt(mouse);
+            Vector3 relativeScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+
+            Weapon.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(relativeScreenPos.y, relativeScreenPos.x));
             Weapon.TryFire();
         }
     }

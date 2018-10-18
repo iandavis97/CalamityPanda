@@ -36,7 +36,7 @@ public class BasicEnemy : MonoBehaviour
             transform.up = deltaPosition;
             controller.velocity = deltaPosition.normalized * speed;
             fireTimer += Time.deltaTime;
-            Weapon.transform.forward = transform.up;
+            Weapon.transform.right = transform.up;
             if (fireTimer >= fireInterval)
             {
                 fireTimer = 0;

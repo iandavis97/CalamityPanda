@@ -53,7 +53,7 @@ public class WeaponPickup : MonoBehaviour {
         {
             // Get position and direction from the muzzle
             Vector3 pos = Muzzle.position;
-            Vector3 velocity = Muzzle.forward * BulletSpeed;
+            Vector3 velocity = Muzzle.right * BulletSpeed;
 
             // Fire the whole volley
             for (int i = 0; i < Volley && HasAmmo(); i++)
