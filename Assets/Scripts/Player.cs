@@ -46,12 +46,14 @@ public class Player : MonoBehaviour
         {
             Weapon.TryPickUp();
         }
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             Vector3 relativeScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-
-            Weapon.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(relativeScreenPos.y, relativeScreenPos.x));
-            Weapon.TryFire();
+            if (Weapon.CurrentState == WeaponHolder.CombatState.Waiting)
+            {
+                Weapon.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(relativeScreenPos.y, relativeScreenPos.x));
+                Weapon.TryFire();
+            }
         }
     }
 }
