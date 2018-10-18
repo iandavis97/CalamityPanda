@@ -10,12 +10,15 @@ public class LevelManager : MonoBehaviour {
     public bool InGame { get; set; }
     public static LevelManager Instance;
     private Camera cam;
+    public Canvas UI;
+    private UIManager uiManager;
 
 	// Use this for initialization
 	void Start () {
         cam = Camera.main;
         StartGame();
         Instance = this;
+        uiManager = UI.GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -58,6 +61,7 @@ public class LevelManager : MonoBehaviour {
     // Change levels without unloading the UI
     private IEnumerator ChangeLevel(int i)
     {
+        UI.enabled = false;
         enabled = false;
         cam.enabled = true;
         Scene old = SceneManager.GetSceneByName(Levels[CurrentLevel]);
@@ -70,5 +74,7 @@ public class LevelManager : MonoBehaviour {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(Levels[i]));
         enabled = true;
         cam.enabled = false;
+        UI.enabled = true;
+        uiManager.LevelStart();
     }
 }

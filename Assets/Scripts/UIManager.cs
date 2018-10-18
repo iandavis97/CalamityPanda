@@ -8,7 +8,8 @@ public class UIManager : MonoBehaviour {
     public GameObject livesText;
     public GameObject healthText;
     public GameObject ammoText;
-
+    public GameObject restartText;
+    
     private Damagable player;
     private WeaponHolder weapon;
 
@@ -30,6 +31,7 @@ public class UIManager : MonoBehaviour {
                 weapon = player.GetComponent<Player>().Weapon;
             }
         }
+        restartText.SetActive(false);
 	}
 	
 	void Update () {
@@ -50,9 +52,15 @@ public class UIManager : MonoBehaviour {
                 }
             }
         }
+        restartText.SetActive(player == null);
         // link up to lives from character object 
         livesText.GetComponent<Text>().text = lives.ToString();
         healthText.GetComponent<Text>().text = health.ToString();
         ammoText.GetComponent<Text>().text = ammo.ToString();
+    }
+
+    public void LevelStart()
+    {
+        restartText.SetActive(false);
     }
 }
