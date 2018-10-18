@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour {
     public GameObject healthText;
     public GameObject ammoText;
 
+    private Damagable player;
+    private WeaponHolder weapon;
+
     // Temp variables for testing
     public int lives = 3;
     public int health = 100;
@@ -18,10 +21,18 @@ public class UIManager : MonoBehaviour {
     public GameObject character;
 
 	void Start () {
-		
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Damagable>();
+        if(player != null)
+        {
+            weapon = player.GetComponent<Player>().Weapon;
+        }
 	}
 	
 	void Update () {
+        if (player != null)
+        {
+            health = player.Health;
+        }
         // link up to lives from character object 
         livesText.GetComponent<Text>().text = lives.ToString();
         healthText.GetComponent<Text>().text = health.ToString();
