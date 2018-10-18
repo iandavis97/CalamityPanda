@@ -326,7 +326,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1813949855009650, guid: 507c6fb4854bf9e439ca2e4eb7bfa7e2, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65354593611390674, guid: 507c6fb4854bf9e439ca2e4eb7bfa7e2, type: 2}
@@ -1418,7 +1418,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1813949855009650, guid: 507c6fb4854bf9e439ca2e4eb7bfa7e2, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65354593611390674, guid: 507c6fb4854bf9e439ca2e4eb7bfa7e2, type: 2}
@@ -3172,7 +3172,7 @@ GameObject:
   - component: {fileID: 1395529668}
   - component: {fileID: 1395529667}
   - component: {fileID: 1395529666}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3427,7 +3427,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1813949855009650, guid: 507c6fb4854bf9e439ca2e4eb7bfa7e2, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65354593611390674, guid: 507c6fb4854bf9e439ca2e4eb7bfa7e2, type: 2}
@@ -5049,7 +5049,7 @@ Prefab:
         type: 2}
       propertyPath: StartingWeapon
       value: 
-      objectReference: {fileID: 1297923658265942, guid: 722933575f55dfe4a89ba5ae7c902e36,
+      objectReference: {fileID: 1737269172757990, guid: 4c21c40802c3b9e41bc293977122adc2,
         type: 2}
     - target: {fileID: 50609374557081782, guid: 407c9640b5054a344821602d406665d9,
         type: 2}
@@ -5065,6 +5065,11 @@ Prefab:
         type: 2}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114791997877816936, guid: 407c9640b5054a344821602d406665d9,
+        type: 2}
+      propertyPath: MaxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 407c9640b5054a344821602d406665d9, type: 2}

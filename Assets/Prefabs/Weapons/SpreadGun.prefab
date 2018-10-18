@@ -189,7 +189,7 @@ MonoBehaviour:
   BulletSpeed: 20
   Range: 15
   Spread: 10
-  RateOfFire: 0.2
+  RateOfFire: 1
   MaxAmmo: -1
   Volley: 5
   Damage: 1
