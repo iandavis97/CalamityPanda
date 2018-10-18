@@ -21,10 +21,14 @@ public class UIManager : MonoBehaviour {
     public GameObject character;
 
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Damagable>();
-        if(player != null)
+        GameObject obj = GameObject.FindGameObjectWithTag("Player");
+        if (obj)
         {
-            weapon = player.GetComponent<Player>().Weapon;
+            player = obj.GetComponent<Damagable>();
+            if (player != null)
+            {
+                weapon = player.GetComponent<Player>().Weapon;
+            }
         }
 	}
 	
@@ -32,6 +36,19 @@ public class UIManager : MonoBehaviour {
         if (player != null)
         {
             health = player.Health;
+        }
+        else
+        {
+            // If we can't find the player, we aren't in a scene with action
+            GameObject obj = GameObject.FindGameObjectWithTag("Player");
+            if (obj)
+            {
+                player = obj.GetComponent<Damagable>();
+                if (player != null)
+                {
+                    weapon = player.GetComponent<Player>().Weapon;
+                }
+            }
         }
         // link up to lives from character object 
         livesText.GetComponent<Text>().text = lives.ToString();
