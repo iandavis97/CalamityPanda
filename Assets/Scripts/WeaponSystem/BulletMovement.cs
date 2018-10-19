@@ -22,14 +22,7 @@ public class BulletMovement : MonoBehaviour {
         life -= Time.deltaTime;
         if (life <= 0)
         {
-            if (pool != null)
-            {
-                pool.Free(gameObject);
-            }
-            else
-            {
-                Destroy(this);
-            }
+            Release();
         }
     }
 
@@ -52,7 +45,27 @@ public class BulletMovement : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        life /= 2;
-        // Do Damage
+        Damagable other = collision.gameObject.GetComponent<Damagable>();
+        if (other != null)
+        {
+            other.TakeDamage(damage);
+            Release();
+        }
+        else
+        {
+            life /= 2;
+        }
+    }
+
+    public void Release()
+    {
+        if (pool != null)
+        {
+            pool.Free(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

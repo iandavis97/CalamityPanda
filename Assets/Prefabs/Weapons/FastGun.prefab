@@ -9,37 +9,37 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1737269172757990}
+  m_RootGameObject: {fileID: 1121084424923668}
   m_IsPrefabAsset: 1
---- !u!1 &1737269172757990
+--- !u!1 &1121084424923668
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4685083000951066}
-  - component: {fileID: 33431011267223324}
-  - component: {fileID: 23425268168872496}
-  - component: {fileID: 58299388129603630}
-  - component: {fileID: 114414163018992972}
+  - component: {fileID: 4486654281169978}
+  - component: {fileID: 33380488908227120}
+  - component: {fileID: 23118288666133974}
+  - component: {fileID: 58478411445245412}
+  - component: {fileID: 114789932667889046}
   m_Layer: 9
-  m_Name: TestGun
+  m_Name: FastGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1966239337640040
+--- !u!1 &1417371543013092
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4884307791983178}
-  - component: {fileID: 33500740527805060}
-  - component: {fileID: 23654140702604274}
+  - component: {fileID: 4780626120936336}
+  - component: {fileID: 33819768195126898}
+  - component: {fileID: 23053789820356298}
   m_Layer: 9
   m_Name: Muzzle
   m_TagString: Untagged
@@ -47,39 +47,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4685083000951066
+--- !u!4 &4486654281169978
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737269172757990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1121084424923668}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.58, z: 10}
   m_LocalScale: {x: 0.2469185, y: 0.24691845, z: 1.148235}
   m_Children:
-  - {fileID: 4884307791983178}
+  - {fileID: 4780626120936336}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!4 &4884307791983178
+--- !u!4 &4780626120936336
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1966239337640040}
+  m_GameObject: {fileID: 1417371543013092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0.5460686}
   m_LocalScale: {x: 1.1560135, y: 1.1560107, z: 0.2485911}
   m_Children: []
-  m_Father: {fileID: 4685083000951066}
+  m_Father: {fileID: 4486654281169978}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!23 &23425268168872496
+--- !u!23 &23053789820356298
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737269172757990}
+  m_GameObject: {fileID: 1417371543013092}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,7 +89,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 55abd629e14c43e4f8ab991c341d0072, type: 2}
+  - {fileID: 2100000, guid: 6be3a388fe357904688c86197db56285, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,12 +109,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23654140702604274
+--- !u!23 &23118288666133974
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1966239337640040}
+  m_GameObject: {fileID: 1121084424923668}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -124,7 +124,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 55abd629e14c43e4f8ab991c341d0072, type: 2}
+  - {fileID: 2100000, guid: 6be3a388fe357904688c86197db56285, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,26 +144,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33431011267223324
+--- !u!33 &33380488908227120
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737269172757990}
+  m_GameObject: {fileID: 1121084424923668}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33500740527805060
+--- !u!33 &33819768195126898
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1966239337640040}
+  m_GameObject: {fileID: 1417371543013092}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!58 &58299388129603630
+--- !u!58 &58478411445245412
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737269172757990}
+  m_GameObject: {fileID: 1121084424923668}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -173,23 +173,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114414163018992972
+--- !u!114 &114789932667889046
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737269172757990}
+  m_GameObject: {fileID: 1121084424923668}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27ec1dc0d3ef5a54e9b548fe458169cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Muzzle: {fileID: 4884307791983178}
+  Muzzle: {fileID: 4780626120936336}
   Bullet: {fileID: 1264477174296620, guid: ffa3a241268fbcd48a537262cb6d61b8, type: 2}
-  BulletSpeed: 20
-  Range: 20
-  Spread: 5
-  RateOfFire: 0.3
+  BulletSpeed: 30
+  Range: 15
+  Spread: 0.5
+  RateOfFire: 2
   MaxAmmo: -1
-  Volley: 2
+  Volley: 1
   Damage: 1
