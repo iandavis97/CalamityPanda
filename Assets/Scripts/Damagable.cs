@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Damagable : MonoBehaviour {
     public int MaxHealth = 1;
-    public int Health { get; set; }
+    public int Health { get; private set; }
 
     // Use this for initialization
     void Start () {
@@ -16,8 +16,13 @@ public class Damagable : MonoBehaviour {
 
     }
 
+    // Lowers health by amount 
     public void TakeDamage(int amount)
     {
+        if(amount < 0)
+        {
+            return;
+        }
         Health -= amount;
         if(Health <= 0)
         {
@@ -28,6 +33,20 @@ public class Damagable : MonoBehaviour {
                 weapon.Release();
             }
             Destroy(gameObject);
+        }
+    }
+
+    // Increases health by amount
+    public void Heal(int amount)
+    {
+        if (amount < 0)
+        {
+            return;
+        }
+        Health += amount;
+        if (Health > MaxHealth)
+        {
+            Health = MaxHealth;
         }
     }
 }
