@@ -55,5 +55,21 @@ public class Player : MonoBehaviour
                 Weapon.TryFire();
             }
         }
+        if (Input.GetMouseButton(1))
+        {
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.layerMask = LayerMask.NameToLayer("Enemy");
+
+            RaycastHit2D[] hit = new RaycastHit2D[2];
+            Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, filter, hit);
+            if (hit[1].collider != null)
+            {
+                BasicEnemy possibleEnemy = hit[1].collider.GetComponent<BasicEnemy>();
+                if (possibleEnemy != null)
+                {
+                    possibleEnemy.TryParry();
+                }
+            }
+        }
     }
 }
