@@ -46,12 +46,30 @@ public class Player : MonoBehaviour
         {
             Weapon.TryPickUp();
         }
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
-            Vector3 mouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            mouse.z = 0;
-            Weapon.transform.LookAt(mouse);
-            Weapon.TryFire();
+            Vector3 relativeScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+            if (Weapon.CurrentState == WeaponHolder.CombatState.Waiting)
+            {
+                Weapon.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(relativeScreenPos.y, relativeScreenPos.x));
+                Weapon.TryFire();
+            }
+        }
+        if (Input.GetMouseButton(1))
+        {
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.layerMask = LayerMask.NameToLayer("Enemy");
+
+            RaycastHit2D[] hit = new RaycastHit2D[2];
+            Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, filter, hit);
+            if (hit[1].collider != null)
+            {
+                BasicEnemy possibleEnemy = hit[1].collider.GetComponent<BasicEnemy>();
+                if (possibleEnemy != null)
+                {
+                    possibleEnemy.TryParry();
+                }
+            }
         }
     }
 }

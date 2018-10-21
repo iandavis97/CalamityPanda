@@ -9,16 +9,16 @@ public class BulletMovement : MonoBehaviour {
     private float life;
     private BulletPool pool;
 
-    private Rigidbody2D rigid;
+    protected Rigidbody2D rigid;
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
         rigid = GetComponent<Rigidbody2D>();
         rigid.velocity = velocity;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected void Update () {
         life -= Time.deltaTime;
         if (life <= 0)
         {
