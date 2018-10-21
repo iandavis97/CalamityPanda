@@ -186,10 +186,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Muzzle: {fileID: 4884307791983178}
   Bullet: {fileID: 1264477174296620, guid: ffa3a241268fbcd48a537262cb6d61b8, type: 2}
-  BulletSpeed: 5
-  Range: 10
-  Spread: 2
-  RateOfFire: -1
+  BulletSpeed: 20
+  Range: 20
+  Spread: 5
+  RateOfFire: 0.3
   MaxAmmo: -1
-  Volley: 1
+  Volley: 2
   Damage: 1
