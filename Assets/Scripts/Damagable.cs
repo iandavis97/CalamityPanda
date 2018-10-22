@@ -5,10 +5,16 @@ using UnityEngine;
 public class Damagable : MonoBehaviour {
     public int MaxHealth = 1;
     public int Health { get; private set; }
+    public delegate void OnDeathAction();
+    public OnDeathAction MyOnDeath { get; set; }
 
     // Use this for initialization
     void Start () {
         Health = MaxHealth;
+        if(MyOnDeath == null)
+        {
+            MyOnDeath = OnDeath;
+        }
 	}
 	
 	// Update is called once per frame
@@ -26,17 +32,7 @@ public class Damagable : MonoBehaviour {
         Health -= amount;
         if(Health <= 0)
         {
-            WeaponHolder weapon = GetComponent<WeaponHolder>();
-            weapon = weapon ? weapon : GetComponentInChildren<WeaponHolder>();
-            if (weapon)
-            {
-                weapon.Release();
-            }
-            if (GetComponent<BasicEnemy>() != null)
-            {
-                GetComponent<BasicEnemy>().DestroyParrySprite();
-            }
-            Destroy(gameObject);
+            MyOnDeath();
         }
     }
 
@@ -52,5 +48,20 @@ public class Damagable : MonoBehaviour {
         {
             Health = MaxHealth;
         }
+    }
+
+    public void OnDeath()
+    {
+        WeaponHolder weapon = GetComponent<WeaponHolder>();
+        weapon = weapon ? weapon : GetComponentInChildren<WeaponHolder>();
+        if (weapon)
+        {
+            weapon.Release();
+        }
+        if (GetComponent<BasicEnemy>() != null)
+        {
+            GetComponent<BasicEnemy>().DestroyParrySprite();
+        }
+        Destroy(gameObject);
     }
 }

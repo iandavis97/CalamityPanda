@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         {
             control.velocity += Vector2.right;
         }
-        control.velocity = Vector3.ClampMagnitude(control.velocity, 1) * speed;
+        control.velocity = Vector3.ClampMagnitude(control.velocity, 1.2f) * speed;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -48,10 +48,8 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-            Vector3 relativeScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
             if (Weapon.CurrentState == WeaponHolder.CombatState.Waiting)
             {
-                Weapon.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(relativeScreenPos.y, relativeScreenPos.x));
                 Weapon.TryFire();
             }
         }
@@ -69,6 +67,18 @@ public class Player : MonoBehaviour
                 {
                     possibleEnemy.TryParry();
                 }
+            }
+        }
+    }
+    private void LateUpdate()
+    {
+        if (Weapon.CurrentState == WeaponHolder.CombatState.Waiting)
+        {
+            Vector3 relativeScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+            relativeScreenPos = new Vector3(relativeScreenPos.y, -relativeScreenPos.x, 0);
+            if (relativeScreenPos.sqrMagnitude > 64)
+            {
+                transform.right = relativeScreenPos;
             }
         }
     }

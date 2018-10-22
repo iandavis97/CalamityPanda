@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour {
     private Camera cam;
     public Canvas UI;
     private UIManager uiManager;
+    public string VictoryScreen;
 
 	// Use this for initialization
 	void Start () {
@@ -42,7 +43,14 @@ public class LevelManager : MonoBehaviour {
 
     public void NextLevel()
     {
-        GoToLevel(CurrentLevel + 1);
+        if (CurrentLevel < Levels.Count - 1)
+        {
+            GoToLevel(CurrentLevel + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(VictoryScreen);
+        }
     }
 
     public void Reload()

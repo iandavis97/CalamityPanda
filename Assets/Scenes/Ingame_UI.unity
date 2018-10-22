@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 619441564}
   - component: {fileID: 619441565}
   m_Layer: 0
-  m_Name: ButtonManagerObject
+  m_Name: ManagerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,9 +167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
-  - Prototype10-16
+  - Sprite_Testing
   CurrentLevel: 0
   UI: {fileID: 2002606679}
+  VictoryScreen: 
 --- !u!1 &638827415
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +454,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1085661626}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.0712924, y: 2.5161643, z: -0.00859375}
+  m_LocalPosition: {x: -1000, y: 2.5161643, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1647606553}
@@ -1152,7 +1153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2018396432
 RectTransform:
   m_ObjectHideFlags: 0
