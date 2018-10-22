@@ -45,14 +45,15 @@ public class WeaponPickup : MonoBehaviour {
         }
 	}
 
-    public bool Fire()
+    // Fires a volley to a collision layer.
+    public bool Fire(int layer)
     {
         // If we are ready to fire
         if(coolDown <= 0 && HasAmmo())
         {
             // Get position and direction from the muzzle
             Vector3 pos = Muzzle.position;
-            Vector3 velocity = Muzzle.forward * BulletSpeed;
+            Vector3 velocity = Muzzle.right * BulletSpeed;
 
             // Fire the whole volley
             for (int i = 0; i < Volley && HasAmmo(); i++)
@@ -77,6 +78,7 @@ public class WeaponPickup : MonoBehaviour {
                 {
                     movement.SetUp(Quaternion.Euler(0, 0, angle) * velocity, Damage, Range / BulletSpeed);
                 }
+                fired.layer = layer;
                 currentAmmo--;
             }
 
