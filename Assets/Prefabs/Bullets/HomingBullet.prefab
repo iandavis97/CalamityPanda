@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 58118688440173340}
   - component: {fileID: 50038974226120920}
   m_Layer: 8
-  m_Name: TestBullet
+  m_Name: HomingBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
