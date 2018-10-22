@@ -121,4 +121,9 @@ public class BasicEnemy : MonoBehaviour
         isPerformingParryableAttack = false;
         parrySpriteRenderer.color = new Color(0, 0, 0, 0);
     }
+
+    public void DestroyParrySprite()
+    {
+        Destroy(parrySpriteClone);
+    }
 }
