@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4784019395348830}
   - component: {fileID: 33175758431143448}
   - component: {fileID: 23306707763389268}
-  - component: {fileID: 114280948175419378}
   - component: {fileID: 58118688440173340}
   - component: {fileID: 50038974226120920}
+  - component: {fileID: 114281816293566684}
   m_Layer: 8
-  m_Name: TestBullet
+  m_Name: HomingBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114280948175419378
+--- !u!114 &114281816293566684
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +129,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1264477174296620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c209e73e87f882b43a5ef5b098ebfef6, type: 3}
+  m_Script: {fileID: 11500000, guid: 24a32c55511808e4999b71cb91d7ad2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

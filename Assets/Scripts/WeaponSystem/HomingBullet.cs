@@ -19,7 +19,10 @@ public class HomingBullet : BulletMovement {
 	new void Update ()
     {
         base.Update();
-        homingVec = (playerRef.transform.position - transform.position).normalized;
-        rigid.velocity = rigid.velocity + homingVec;
+        if (playerRef != null)
+        {
+            homingVec = (playerRef.transform.position - transform.position).normalized;
+            rigid.velocity = rigid.velocity + homingVec;
+        }
 	}
 }

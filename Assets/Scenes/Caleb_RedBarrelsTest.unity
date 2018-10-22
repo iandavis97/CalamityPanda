@@ -271,6 +271,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114960484310386182, guid: 1832c727b798fd8429360d1dbd5026f7,
+        type: 2}
+      propertyPath: StartingWeapon
+      value: 
+      objectReference: {fileID: 1737269172757990, guid: c794bff32296eb74787d0052d08059fb,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1832c727b798fd8429360d1dbd5026f7, type: 2}
   m_IsPrefabAsset: 0
