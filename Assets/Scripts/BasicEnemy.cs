@@ -32,6 +32,12 @@ public class BasicEnemy : MonoBehaviour
     bool isPerformingParryableAttack = false;
     // can the attack be parried right now?
     bool parryWindowOpen = false;
+
+    // Is this unit aware of the player
+    bool isAlert = false;
+    // A layer mask that allows the inclusion and exclusion of collision layers as applicable to enemy sight
+    public LayerMask sightRayMask;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -63,14 +69,20 @@ public class BasicEnemy : MonoBehaviour
             {
                 Vector3 deltaPosition = playerRef.transform.position - transform.position;
                 deltaPosition.z = 0;
-                controller.velocity = deltaPosition.normalized * speed;
-                transform.up = deltaPosition;
-                fireTimer += Time.deltaTime;
-                //Weapon.transform.right = transform.up;
-                if (fireTimer >= fireInterval)
+                if (isAlert)
                 {
-                    fireTimer = 0;
-                    Weapon.TryFire();
+                    controller.velocity = deltaPosition.normalized * speed;
+                    transform.up = deltaPosition;
+                    fireTimer += Time.deltaTime;
+                    if (fireTimer >= fireInterval)
+                    {
+                        fireTimer = 0;
+                        Weapon.TryFire();
+                    }
+                }
+                else
+                {
+                    isAlert = !Physics2D.Raycast(transform.position, deltaPosition, deltaPosition.magnitude, sightRayMask);
                 }
             }
             // set the parry sprite to always be above this

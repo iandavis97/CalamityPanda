@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4068315694423242}
   - component: {fileID: 114960484310386182}
   - component: {fileID: 58335859419818868}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400461892675876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08, y: -14.81, z: -5}
+  m_LocalPosition: {x: 23.7, y: -11.2, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4068315694423242}
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 1
 --- !u!114 &114875621114198126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +155,9 @@ MonoBehaviour:
   parryWarmUpTime: 3
   parryWindow: 2
   stunInterval: 3
+  sightRayMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &114960484310386182
 MonoBehaviour:
   m_ObjectHideFlags: 1

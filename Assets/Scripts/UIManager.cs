@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
+            health = 0;
             // If we can't find the player, we aren't in a scene with action
             GameObject obj = GameObject.FindGameObjectWithTag("Player");
             if (obj)
