@@ -2537,19 +2537,6 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 114791997877816936, guid: 7f32feea3014a4f4f888432038a5435f,
-        type: 2}
-      propertyPath: MaxHealth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200556838877652, guid: 7f32feea3014a4f4f888432038a5435f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200556838877652, guid: 7f32feea3014a4f4f888432038a5435f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.52
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f32feea3014a4f4f888432038a5435f, type: 2}
   m_IsPrefabAsset: 0
