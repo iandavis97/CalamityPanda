@@ -74,9 +74,9 @@ public class Player : MonoBehaviour
     {
         if (Weapon.CurrentState == WeaponHolder.CombatState.Waiting)
         {
-            Vector3 relativeScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+            Vector3 relativeScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(Weapon.transform.position);
             relativeScreenPos = new Vector3(relativeScreenPos.y, -relativeScreenPos.x, 0);
-            if (relativeScreenPos.sqrMagnitude > 64)
+            if (relativeScreenPos.sqrMagnitude > 32*32)
             {
                 transform.right = relativeScreenPos;
             }
