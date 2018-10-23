@@ -100,6 +100,7 @@ public class WeaponHolder : MonoBehaviour {
             weapon.transform.parent = transform;
             weapon.transform.localPosition = Vector3.zero;
             weapon.transform.localRotation = Quaternion.identity;
+            weapon.transform.localScale = new Vector3(1, 1, 1);
             return true;
         }
         return false;
