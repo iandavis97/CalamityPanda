@@ -38,7 +38,7 @@ public class BasicEnemy : MonoBehaviour
         controller = GetComponent<Rigidbody2D>();
         if (playerRef == null)
         {
-            playerRef = GameObject.Find("Player").GetComponent<Player>();
+            playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
         if (Weapon == null)
         {
@@ -62,6 +62,7 @@ public class BasicEnemy : MonoBehaviour
             if (playerRef != null)
             {
                 Vector3 deltaPosition = playerRef.transform.position - transform.position;
+                deltaPosition.z = 0;
                 controller.velocity = deltaPosition.normalized * speed;
                 transform.up = deltaPosition;
                 fireTimer += Time.deltaTime;

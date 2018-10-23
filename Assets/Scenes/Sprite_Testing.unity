@@ -2408,10 +2408,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4709393930351062, guid: 008ce96c7c50c3141864e745f3d6e586, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1400461892675876, guid: 008ce96c7c50c3141864e745f3d6e586, type: 2}
       propertyPath: m_Name
       value: NewBasicEnemy (1)
