@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 288814154}
   - component: {fileID: 288814155}
   - component: {fileID: 288814156}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2542,6 +2542,14 @@ Prefab:
       propertyPath: MaxHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4200556838877652, guid: 7f32feea3014a4f4f888432038a5435f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200556838877652, guid: 7f32feea3014a4f4f888432038a5435f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f32feea3014a4f4f888432038a5435f, type: 2}
   m_IsPrefabAsset: 0
@@ -3652,7 +3660,7 @@ GameObject:
   - component: {fileID: 879179253}
   - component: {fileID: 879179254}
   - component: {fileID: 879179255}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Table (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3961,7 +3969,7 @@ GameObject:
   - component: {fileID: 979729933}
   - component: {fileID: 979729934}
   - component: {fileID: 979729935}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Table (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4062,7 +4070,7 @@ GameObject:
   - component: {fileID: 991565884}
   - component: {fileID: 991565885}
   - component: {fileID: 991565886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Table (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
