@@ -170,7 +170,7 @@ MonoBehaviour:
   - Sprite_Testing
   CurrentLevel: 0
   UI: {fileID: 2002606679}
-  VictoryScreen: 
+  VictoryScreen: Victory_Screen
 --- !u!1 &638827415
 GameObject:
   m_ObjectHideFlags: 0
