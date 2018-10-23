@@ -46,7 +46,7 @@ public class WeaponPickup : MonoBehaviour {
 	}
 
     // Fires a volley to a collision layer.
-    public bool Fire(int layer)
+    public bool Fire(int layer, Vector3 baseVelocity)
     {
         // If we are ready to fire
         if(coolDown <= 0 && HasAmmo())
@@ -76,7 +76,7 @@ public class WeaponPickup : MonoBehaviour {
                 BulletMovement movement = fired.GetComponent<BulletMovement>();
                 if(movement != null)
                 {
-                    movement.SetUp(Quaternion.Euler(0, 0, angle) * velocity, Damage, Range / BulletSpeed);
+                    movement.SetUp(baseVelocity + (Quaternion.Euler(0, 0, angle) * velocity), Damage, Range / BulletSpeed);
                 }
                 fired.layer = layer;
                 currentAmmo--;
