@@ -20,7 +20,7 @@ public class DashEnemy : MonoBehaviour
         controller = GetComponent<Rigidbody2D>();
         if (playerRef == null)
         {
-            playerRef = GameObject.Find("Player").GetComponent<Player>();
+            playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
     }
 
