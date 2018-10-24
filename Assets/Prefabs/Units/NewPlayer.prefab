@@ -94,7 +94,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58380396346855486
 CircleCollider2D:
@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  dashSpeed: 10
+  dashRange: 3
   Weapon: {fileID: 114751426641201056}
 --- !u!114 &114751426641201056
 MonoBehaviour:
@@ -167,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 3
+  ImmunePeriod: 0
 --- !u!114 &114893474524280864
 MonoBehaviour:
   m_ObjectHideFlags: 1
