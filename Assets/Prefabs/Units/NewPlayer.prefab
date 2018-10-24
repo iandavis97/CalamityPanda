@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  dashSpeed: 10
-  dashRange: 3
+  dashSpeed: 30
+  dashRange: 5
   Weapon: {fileID: 114751426641201056}
 --- !u!114 &114751426641201056
 MonoBehaviour:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 3
-  ImmunePeriod: 0
+  ImmunePeriod: 0.2
 --- !u!114 &114893474524280864
 MonoBehaviour:
   m_ObjectHideFlags: 1
