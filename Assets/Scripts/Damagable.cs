@@ -67,10 +67,10 @@ public class Damagable : MonoBehaviour {
         {
             weapon.Release();
         }
-        if (GetComponent<BasicEnemy>() != null)
-        {
-            GetComponent<BasicEnemy>().DestroyParrySprite();
-        }
+        // if (GetComponent<BasicEnemy>() != null)
+        // {
+        //     GetComponent<BasicEnemy>().DestroyParrySprite();
+        // }
         Destroy(gameObject);
     }
 }
