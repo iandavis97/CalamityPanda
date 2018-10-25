@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private float dashTimer;
     private Damagable health;
     private Collider2D box;
+    private GameObject lastBounce = null;
 
     // Public so that we can have the component on a different transform
     public WeaponHolder Weapon;
@@ -85,6 +86,7 @@ public class Player : MonoBehaviour
                     state = PlayerState.Rolling;
                     health.Immune = true;
                     control.gameObject.layer = 15;
+                    lastBounce = null;
                 }
                 break;
             case PlayerState.Rolling:
@@ -130,8 +132,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        transform.up = Vector3.Reflect(transform.up, collision.contacts[0].normal);
+        if (state == PlayerState.Rolling && lastBounce != collision.gameObject)
+        {
+            transform.up = Vector3.Reflect(transform.up, collision.contacts[0].normal);
+            lastBounce = collision.gameObject;
+        }
     }
 }
