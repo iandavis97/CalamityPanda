@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Victory_Screen.unity
     guid: 5c642ce1dcd77c348a676ce27bd59f28
+  - enabled: 1
+    path: Assets/Scenes/Hammers_Testing_Scene.unity
+    guid: fca8a33442145f942b9d2d6d6fc01ac0
   m_configObjects: {}

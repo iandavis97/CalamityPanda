@@ -10,28 +10,28 @@ public class BasicEnemy : MonoBehaviour
     Rigidbody2D controller;
     public WeaponHolder Weapon;
     float fireTimer = 0;
-    static GameObject parrySpriteRef;
-    GameObject parrySpriteClone;
-    SpriteRenderer parrySpriteRenderer;
+    //static GameObject parrySpriteRef;
+    //GameObject parrySpriteClone;
+    //SpriteRenderer parrySpriteRenderer;
     [SerializeField]
     float fireInterval = 2;
-    [SerializeField]
-    float parrySpriteDeltaHeight = 1;
-    [SerializeField]
+    //[SerializeField]
+    //float parrySpriteDeltaHeight = 1;
+    //[SerializeField]
     // the time between the start of the parry "windup" and the chance for you to parry
-    float parryWarmUpTime = 3;
-    [SerializeField]
+    //float parryWarmUpTime = 3;
+    //[SerializeField]
     // the time interval in which an attack can be parried
-    float parryWindow = 2;
-    [SerializeField]
+    //float parryWindow = 2;
+    //[SerializeField]
     // the time an enemy is stunned for if a parry is successful
-    float stunInterval = 3;
+    //float stunInterval = 3;
     // if the player's parry was successful
-    bool isParried = false;
+    //bool isParried = false;
     // if this is performing an attack that can pe parried in the right moment
-    bool isPerformingParryableAttack = false;
+    //bool isPerformingParryableAttack = false;
     // can the attack be parried right now?
-    bool parryWindowOpen = false;
+    //bool parryWindowOpen = false;
 
     // Is this unit aware of the player
     bool isAlert = false;
@@ -50,93 +50,85 @@ public class BasicEnemy : MonoBehaviour
         {
             Weapon = GetComponent<WeaponHolder>();
         }
-        if (parrySpriteRef == null)
-        {
-            parrySpriteRef = Resources.Load<GameObject>("ParrySprite");
-        }
-        parrySpriteClone = Instantiate(parrySpriteRef);
-        parrySpriteRenderer = parrySpriteClone.GetComponent<SpriteRenderer>();
-        parrySpriteRenderer.color = new Color(0, 0, 0, 0);
+        // if (parrySpriteRef == null)
+        // {
+        //     parrySpriteRef = Resources.Load<GameObject>("ParrySprite");
+        // }
+        // parrySpriteClone = Instantiate(parrySpriteRef);
+        // parrySpriteRenderer = parrySpriteClone.GetComponent<SpriteRenderer>();
+        // parrySpriteRenderer.color = new Color(0, 0, 0, 0);
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (!isParried)
+        // If the player dies, he will be null according to Unity
+        if (playerRef != null)
         {
-            // If the player dies, he will be null according to Unity
-            if (playerRef != null)
+            Vector3 deltaPosition = playerRef.transform.position - transform.position;
+            deltaPosition.z = 0;
+            if (isAlert)
             {
-                Vector3 deltaPosition = playerRef.transform.position - transform.position;
-                deltaPosition.z = 0;
-                if (isAlert)
+                controller.velocity = deltaPosition.normalized * speed;
+                transform.up = deltaPosition;
+                fireTimer += Time.deltaTime;
+                if (fireTimer >= fireInterval)
                 {
-                    controller.velocity = deltaPosition.normalized * speed;
-                    transform.up = deltaPosition;
-                    fireTimer += Time.deltaTime;
-                    if (fireTimer >= fireInterval)
-                    {
-                        fireTimer = 0;
-                        Weapon.TryFire();
-                    }
-                }
-                else
-                {
-                    isAlert = !Physics2D.Raycast(transform.position, deltaPosition, deltaPosition.magnitude, sightRayMask);
+                    fireTimer = 0;
+                    Weapon.TryFire();
                 }
             }
-            // set the parry sprite to always be above this
-            parrySpriteClone.transform.position = this.transform.position + Vector3.up * parrySpriteDeltaHeight;
-            if (!isPerformingParryableAttack)
+            else
             {
-                isPerformingParryableAttack = true;
-                StartCoroutine(StartParryableAttack());
+                isAlert = !Physics2D.Raycast(transform.position, deltaPosition, deltaPosition.magnitude, sightRayMask);
             }
         }
-        else
-        {
-            controller.velocity = Vector2.zero;
-        }
-	}
-
-    // called by player script if it tries to parry this enemy's attack
-    public void TryParry()
-    {
-        if (parryWindowOpen)
-        {
-            isParried = true;
-            StartCoroutine(ResetParry());
-        }
-   
+        // // set the parry sprite to always be above this
+        // parrySpriteClone.transform.position = this.transform.position + Vector3.up * parrySpriteDeltaHeight;
+        // if (!isPerformingParryableAttack)
+        // {
+        //     isPerformingParryableAttack = true;
+        //     StartCoroutine(StartParryableAttack());
+        // }
     }
+    // called by player script if it tries to parry this enemy's attack
+    // public void TryParry()
+    // {
+    //     if (parryWindowOpen)
+    //     {
+    //         isParried = true;
+    //         StartCoroutine(ResetParry());
+    //     }
+   
+    // }
 
     // after a parry, wait an appropriate amount and resume attacking
-    IEnumerator ResetParry()
-    {
-        yield return new WaitForSeconds(stunInterval);
-        isParried = false;
+    // IEnumerator ResetParry()
+    // {
+    //     yield return new WaitForSeconds(stunInterval);
+    //     isParried = false;
 
-    }
+    // }
 
     // start an attack that can be parried at the right moment
-    IEnumerator StartParryableAttack()
-    {
-        // Visually indicate state of attack with parry sprite
-        while (parrySpriteRenderer.color.a < .95f)
-        {
-            parrySpriteRenderer.color = Color.Lerp(parrySpriteRenderer.color, Color.black, Time.deltaTime / parryWarmUpTime);
-            yield return null;
-        }
-        parrySpriteRenderer.color = Color.red;
-        parryWindowOpen = true;
-        yield return new WaitForSeconds(parryWindow);
-        parryWindowOpen = false;
-        isPerformingParryableAttack = false;
-        parrySpriteRenderer.color = new Color(0, 0, 0, 0);
-    }
+    // IEnumerator StartParryableAttack()
+    // {
+    //     // Visually indicate state of attack with parry sprite
+    //     while (parrySpriteRenderer.color.a < .95f)
+    //     {
+    //         parrySpriteRenderer.color = Color.Lerp(parrySpriteRenderer.color, Color.black, Time.deltaTime / parryWarmUpTime);
+    //         yield return null;
+    //     }
+    //     parrySpriteRenderer.color = Color.red;
+    //     parryWindowOpen = true;
+    //     yield return new WaitForSeconds(parryWindow);
+    //     parryWindowOpen = false;
+    //     isPerformingParryableAttack = false;
+    //     parrySpriteRenderer.color = new Color(0, 0, 0, 0);
+    // }
 
-    public void DestroyParrySprite()
-    {
-        Destroy(parrySpriteClone);
-    }
+    // public void DestroyParrySprite()
+    // {
+    //     Destroy(parrySpriteClone);
+    // }
 }
