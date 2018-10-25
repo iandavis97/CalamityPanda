@@ -65,7 +65,7 @@ public class WeaponHolder : MonoBehaviour {
     {
         if(Holding())
         {
-            return CurrentWeapon.Fire(Player ? 8 : 12, Vector3.zero); //physicsObject.velocity); Currently doesn't work well
+            return CurrentWeapon.Fire(Player ? 8 : 12, physicsObject.velocity);
         }
         else if (MeleeWeapon != null && CurrentState == CombatState.Waiting)
         {

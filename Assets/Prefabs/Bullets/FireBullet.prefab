@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50038974226120920}
   - component: {fileID: 212263554957726312}
   m_Layer: 8
-  m_Name: TestBullet
+  m_Name: FireBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

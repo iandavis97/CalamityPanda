@@ -11,11 +11,15 @@ public class Player : MonoBehaviour
 
     Rigidbody2D control;
     [SerializeField] float speed;
+    [SerializeField] float acceleration = 5;
 
     // Dash properties and controls
     private PlayerState state;
     public float dashSpeed = 5;
-    public float dashRange = 3;
+    public float maxDashRange = 3;
+    public float maxChargeTime = 1;
+    public float minChargeTime = .3f;
+    private float chargeTime;
     private float dashTimer;
     private Damagable health;
     private Collider2D box;
@@ -38,34 +42,12 @@ public class Player : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         switch (state)
         {
             case PlayerState.Idle:
-                control.velocity = Vector2.zero;
-                if (Input.GetKey(KeyCode.W))
-                {
-                    control.velocity += Vector2.up;
-                }
-                if (Input.GetKey(KeyCode.A))
-                {
-                    control.velocity -= Vector2.right;
-                }
-                if (Input.GetKey(KeyCode.S))
-                {
-                    control.velocity -= Vector2.up;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    control.velocity += Vector2.right;
-                }
-                control.velocity = Vector3.ClampMagnitude(control.velocity, 1.2f) * speed;
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Weapon.TryPickUp();
-                }
+                // Firing logic
                 if (Input.GetMouseButton(0))
                 {
                     if (Weapon.CurrentState == WeaponHolder.CombatState.Waiting)
@@ -73,16 +55,57 @@ public class Player : MonoBehaviour
                         Weapon.TryFire();
                     }
                 }
+
+                // Movement logic
+                Vector2 target = new Vector3();
+                if (Input.GetKey(KeyCode.W))
+                {
+                    target += Vector2.up;
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    target -= Vector2.right;
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    target -= Vector2.up;
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    target += Vector2.right;
+                }
+                target = Vector2.ClampMagnitude(target, 1) * speed;
+                float mod = Vector2.Dot(target, control.velocity) > 0 ? 1 : 2;
+                control.velocity = Vector2.MoveTowards(control.velocity, target, acceleration * mod * Time.fixedDeltaTime);
+
+                // Weapon pickup logic
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Weapon.TryPickUp();
+                }
+            
+                // Spindash logic
                 if (Input.GetMouseButton(1))
                 {
                     state = PlayerState.Aiming;
+                    chargeTime = 0;
                 }
                 break;
             case PlayerState.Aiming:
-                control.velocity = Vector2.zero;    
+                control.velocity = Vector2.MoveTowards(control.velocity, Vector2.zero, acceleration * Time.fixedDeltaTime);
+                chargeTime += Time.fixedDeltaTime;
                 if (!Input.GetMouseButton(1))
                 {
-                    dashTimer = dashRange / dashSpeed;
+                    if(chargeTime < minChargeTime)
+                    {
+                        state = PlayerState.Idle;
+                        break;
+                    }
+                    if(chargeTime > maxChargeTime)
+                    {
+                        chargeTime = maxChargeTime;
+                    }
+                    dashTimer = maxDashRange / dashSpeed * chargeTime / maxChargeTime;
                     state = PlayerState.Rolling;
                     health.Immune = true;
                     control.gameObject.layer = 15;
@@ -90,8 +113,8 @@ public class Player : MonoBehaviour
                 }
                 break;
             case PlayerState.Rolling:
-                dashTimer -= Time.deltaTime;
-                control.velocity = transform.up * dashSpeed;
+                dashTimer -= Time.fixedDeltaTime;
+                control.velocity = transform.up * dashSpeed * chargeTime / maxChargeTime;
                 if (dashTimer <= 0)
                 {
                     state = PlayerState.Idle;
@@ -134,7 +157,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (state == PlayerState.Rolling && lastBounce != collision.gameObject)
+        if (state == PlayerState.Rolling && Vector3.Dot(transform.up, collision.contacts[0].normal) < 0)
         {
             transform.up = Vector3.Reflect(transform.up, collision.contacts[0].normal);
             lastBounce = collision.gameObject;

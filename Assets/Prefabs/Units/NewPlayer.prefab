@@ -138,8 +138,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  dashSpeed: 30
-  dashRange: 5
+  acceleration: 40
+  dashSpeed: 100
+  maxDashRange: 100
+  maxChargeTime: 2
+  minChargeTime: 0.3
   Weapon: {fileID: 114751426641201056}
 --- !u!114 &114751426641201056
 MonoBehaviour:
