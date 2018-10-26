@@ -20,10 +20,15 @@ public class Player : MonoBehaviour
     public float maxChargeTime = 1;
     public float minChargeTime = .3f;
     private float chargeTime;
+    private float dashStartTime;
     private float dashTimer;
+    private GameObject lastBounce = null;
+
+    // Internal connections
     private Damagable health;
     private Collider2D box;
-    private GameObject lastBounce = null;
+    private SpriteRenderer sprite;
+    private MeshRenderer dashSphere;
 
     // Public so that we can have the component on a different transform
     public WeaponHolder Weapon;
@@ -39,10 +44,13 @@ public class Player : MonoBehaviour
         }
         health = GetComponent<Damagable>();
         box = GetComponent<Collider2D>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+        sprite = GetComponent<SpriteRenderer>();
+        dashSphere = GetComponentInChildren<MeshRenderer>();
+        dashSphere.enabled = false;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate ()
     {
         switch (state)
         {
@@ -89,23 +97,30 @@ public class Player : MonoBehaviour
                 {
                     state = PlayerState.Aiming;
                     chargeTime = 0;
+                    sprite.enabled = false;
+                    dashSphere.enabled = true;
+                    Weapon.gameObject.SetActive(false);
                 }
                 break;
             case PlayerState.Aiming:
                 control.velocity = Vector2.MoveTowards(control.velocity, Vector2.zero, acceleration * Time.fixedDeltaTime);
                 chargeTime += Time.fixedDeltaTime;
+                if (chargeTime > maxChargeTime)
+                {
+                    chargeTime = maxChargeTime;
+                }
                 if (!Input.GetMouseButton(1))
                 {
                     if(chargeTime < minChargeTime)
                     {
                         state = PlayerState.Idle;
+                        sprite.enabled = true;
+                        dashSphere.enabled = false;
+                        Weapon.gameObject.SetActive(true);
                         break;
                     }
-                    if(chargeTime > maxChargeTime)
-                    {
-                        chargeTime = maxChargeTime;
-                    }
-                    dashTimer = maxDashRange / dashSpeed * chargeTime / maxChargeTime;
+                    dashTimer = maxDashRange / dashSpeed * Mathf.Pow(chargeTime / maxChargeTime, .5f);
+                    dashStartTime = dashTimer;
                     state = PlayerState.Rolling;
                     health.Immune = true;
                     control.gameObject.layer = 15;
@@ -114,17 +129,21 @@ public class Player : MonoBehaviour
                 break;
             case PlayerState.Rolling:
                 dashTimer -= Time.fixedDeltaTime;
-                control.velocity = transform.up * dashSpeed * chargeTime / maxChargeTime;
+                control.velocity = transform.up * dashSpeed * dashTimer / dashStartTime * Mathf.Pow(chargeTime / maxChargeTime, .5f);
                 if (dashTimer <= 0)
                 {
                     state = PlayerState.Idle;
                     health.Immune = false;
                     control.gameObject.layer = 13;
+                    sprite.enabled = true;
+                    dashSphere.enabled = false;
+                    Weapon.gameObject.SetActive(true);
                 }
                 break;
             default:
                 break;
         }
+        dashSphere.transform.localRotation *= Quaternion.Euler(chargeTime * 10, 0, 0);
         // if (Input.GetMouseButton(1))
         // {
         //     ContactFilter2D filter = new ContactFilter2D();
