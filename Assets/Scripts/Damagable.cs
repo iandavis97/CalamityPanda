@@ -7,6 +7,7 @@ public class Damagable : MonoBehaviour {
     public int Health { get; private set; }
     public delegate void OnDeathAction();
     public OnDeathAction MyOnDeath { get; set; }
+    public GameObject bloodSplat;
 
     // Use this for initialization
     void Start () {
@@ -62,6 +63,12 @@ public class Damagable : MonoBehaviour {
         // {
         //     GetComponent<BasicEnemy>().DestroyParrySprite();
         // }
+
+        if(bloodSplat != null)
+        {
+            Instantiate(bloodSplat, transform.position, transform.rotation);
+        }
+
         Destroy(gameObject);
     }
 }
