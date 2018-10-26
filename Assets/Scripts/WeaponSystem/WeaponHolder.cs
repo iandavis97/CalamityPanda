@@ -10,6 +10,8 @@ public class WeaponHolder : MonoBehaviour {
         StartUp = 2,
     }
 
+    private Rigidbody2D physicsObject;
+
     public GameObject StartingWeapon;
     public WeaponPickup CurrentWeapon;
     private Collider2D pickUpCollider;
@@ -37,6 +39,7 @@ public class WeaponHolder : MonoBehaviour {
         }
         CurrentState = CombatState.Waiting;
         pickUpCollider = GetComponent<Collider2D>();
+        physicsObject = GetComponentInParent<Rigidbody2D>();
 	}
 
 	// Update is called once per frame
@@ -62,7 +65,7 @@ public class WeaponHolder : MonoBehaviour {
     {
         if(Holding())
         {
-            return CurrentWeapon.Fire(Player ? 8 : 12);
+            return CurrentWeapon.Fire(Player ? 8 : 12, physicsObject.velocity);
         }
         else if (MeleeWeapon != null && CurrentState == CombatState.Waiting)
         {

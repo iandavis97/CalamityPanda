@@ -9,8 +9,13 @@ public class Damagable : MonoBehaviour {
     public OnDeathAction MyOnDeath { get; set; }
     public GameObject bloodSplat;
 
+    public float ImmunePeriod;
+    private float immuneTimer;
+    public bool Immune { get; set; }
+
     // Use this for initialization
     void Start () {
+        immuneTimer = 0;
         Health = MaxHealth;
         if(MyOnDeath == null)
         {
@@ -20,13 +25,16 @@ public class Damagable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(immuneTimer > 0)
+        {
+            immuneTimer -= Time.deltaTime;
+        }
     }
 
     // Lowers health by amount 
     public void TakeDamage(int amount)
     {
-        if(amount < 0)
+        if(amount < 0 || immuneTimer > 0 || Immune)
         {
             return;
         }
@@ -35,6 +43,7 @@ public class Damagable : MonoBehaviour {
         {
             MyOnDeath();
         }
+        immuneTimer = ImmunePeriod;
     }
 
     // Increases health by amount
