@@ -30,7 +30,8 @@ public class RedBarrel : MonoBehaviour
         ContactFilter2D enemyFilter = new ContactFilter2D();
         enemyFilter.SetLayerMask(LayerMask.NameToLayer("Player"));
         GetComponent<SpriteRenderer>().enabled = false;
-        StartCoroutine(GetComponent<ExplosionEmitter>().Explode());
+//        StartCoroutine(GetComponent<ExplosionEmitter>().Explode());
+        GetComponent<ExplosionEmitter>().Explode();
         // RaycastHit2D[] results = new RaycastHit2D[10];
         // Physics2D.CircleCast(transform.position, 5.0f, Vector2.zero, enemyFilter, results);
         // foreach (RaycastHit2D hit in results)

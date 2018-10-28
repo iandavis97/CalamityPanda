@@ -5,6 +5,8 @@ using UnityEngine;
 public class ExplosionEmitter : MonoBehaviour
 {
     static GameObject explosion;
+    [SerializeField]
+    float blastRadius;
 	// Use this for initialization
 	void Start ()
     {
@@ -20,11 +22,12 @@ public class ExplosionEmitter : MonoBehaviour
 		
 	}
 
-    public IEnumerator Explode()
+    public void Explode()
     {
         GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1);
-        Destroy(explosionInstance);
+        explosionInstance.transform.localScale = new Vector3(blastRadius, blastRadius, 1);
+        //yield return new WaitForSeconds(1);
+        //Destroy(explosionInstance);
         Destroy(gameObject);
     }
 }

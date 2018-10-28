@@ -8,7 +8,7 @@ public class Explosion : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-		
+		StartCoroutine(DestroySelf());
 	}
 	
 	// Update is called once per frame
@@ -25,5 +25,11 @@ public class Explosion : MonoBehaviour
             otherDamagable.TakeDamage(50);
             print("That's a lotta damage!");
         }
+    }
+
+    IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }
