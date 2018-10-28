@@ -3252,6 +3252,7 @@ GameObject:
   - component: {fileID: 771390448}
   - component: {fileID: 771390447}
   - component: {fileID: 771390449}
+  - component: {fileID: 771390450}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
@@ -3343,6 +3344,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &771390450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 771390446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
 --- !u!1 &771823891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,6 +5498,7 @@ GameObject:
   - component: {fileID: 1179915676}
   - component: {fileID: 1179915677}
   - component: {fileID: 1179915678}
+  - component: {fileID: 1179915679}
   m_Layer: 0
   m_Name: Crate (2)
   m_TagString: Untagged
@@ -5576,6 +5590,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1179915679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179915675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
 --- !u!1 &1223587036
 GameObject:
   m_ObjectHideFlags: 0
@@ -8088,6 +8114,7 @@ GameObject:
   - component: {fileID: 1734389094}
   - component: {fileID: 1734389096}
   - component: {fileID: 1734389095}
+  - component: {fileID: 1734389097}
   m_Layer: 0
   m_Name: Crate (3)
   m_TagString: Untagged
@@ -8179,6 +8206,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1734389097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734389093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
 --- !u!1 &1739459299
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,6 +8774,7 @@ GameObject:
   - component: {fileID: 1885496393}
   - component: {fileID: 1885496395}
   - component: {fileID: 1885496394}
+  - component: {fileID: 1885496396}
   m_Layer: 0
   m_Name: Crate (4)
   m_TagString: Untagged
@@ -8826,6 +8866,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1885496396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1885496392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
 --- !u!4 &1913275209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4709393930351062, guid: 008ce96c7c50c3141864e745f3d6e586,
@@ -9472,6 +9524,7 @@ GameObject:
   - component: {fileID: 2041337708}
   - component: {fileID: 2041337709}
   - component: {fileID: 2041337710}
+  - component: {fileID: 2041337711}
   m_Layer: 0
   m_Name: Crate (1)
   m_TagString: Untagged
@@ -9563,6 +9616,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &2041337711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2041337707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
 --- !u!4 &2051692905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4709393930351062, guid: 008ce96c7c50c3141864e745f3d6e586,
