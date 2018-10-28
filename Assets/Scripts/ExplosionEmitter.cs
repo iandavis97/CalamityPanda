@@ -25,5 +25,6 @@ public class ExplosionEmitter : MonoBehaviour
         GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1);
         Destroy(explosionInstance);
+        Destroy(gameObject);
     }
 }

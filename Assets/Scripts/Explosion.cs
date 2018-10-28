@@ -22,7 +22,7 @@ public class Explosion : MonoBehaviour
         Damagable otherDamagable = collision.gameObject.GetComponent<Damagable>();
         if (otherDamagable != null)
         {
-            otherDamagable.TakeDamage(10);
+            otherDamagable.TakeDamage(50);
             print("That's a lotta damage!");
         }
     }
