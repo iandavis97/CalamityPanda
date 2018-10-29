@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
+  bloodSplat: {fileID: 1796557627853726, guid: bb7f2768227db4c4f9c348dc2e5499c8, type: 2}
 --- !u!114 &114952813075733880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,10 +152,6 @@ MonoBehaviour:
   speed: 2.5
   Weapon: {fileID: 114960484310386182}
   fireInterval: 0.3
-  parrySpriteDeltaHeight: 1
-  parryWarmUpTime: 3
-  parryWindow: 2
-  stunInterval: 3
   sightRayMask:
     serializedVersion: 2
     m_Bits: 1
