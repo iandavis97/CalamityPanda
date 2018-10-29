@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
+  bloodSplat: {fileID: 0}
+  ImmunePeriod: 0
 --- !u!114 &114952813075733880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,10 +153,6 @@ MonoBehaviour:
   speed: 2.5
   Weapon: {fileID: 114960484310386182}
   fireInterval: 0.3
-  parrySpriteDeltaHeight: 1
-  parryWarmUpTime: 3
-  parryWindow: 2
-  stunInterval: 3
   sightRayMask:
     serializedVersion: 2
     m_Bits: 1
@@ -209,8 +207,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d94918095a6421449a44480842c8b16e, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.19647932, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 13b4259d771f4a94a8eaf2da1e4e5278, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

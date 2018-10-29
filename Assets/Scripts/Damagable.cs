@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,7 @@ public class Damagable : MonoBehaviour {
     public int Health { get; private set; }
     public delegate void OnDeathAction();
     public OnDeathAction MyOnDeath { get; set; }
+    public GameObject bloodSplat;
 
     public float ImmunePeriod;
     private float immuneTimer;
@@ -85,6 +86,12 @@ public class Damagable : MonoBehaviour {
         // {
         //     GetComponent<BasicEnemy>().DestroyParrySprite();
         // }
+
+        if(bloodSplat != null)
+        {
+            Instantiate(bloodSplat, transform.position, transform.rotation);
+        }
+
         Destroy(gameObject);
     }
 }

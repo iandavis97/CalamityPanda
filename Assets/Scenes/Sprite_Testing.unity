@@ -6125,6 +6125,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114875621114198126, guid: 008ce96c7c50c3141864e745f3d6e586,
+        type: 2}
+      propertyPath: bloodSplat
+      value: 
+      objectReference: {fileID: 1796557627853726, guid: bb7f2768227db4c4f9c348dc2e5499c8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008ce96c7c50c3141864e745f3d6e586, type: 2}
   m_IsPrefabAsset: 0
