@@ -23,21 +23,23 @@ public class Damagable : MonoBehaviour {
             MyOnDeath = OnDeath;
         }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        
+
+    // Update is called once per frame
+    void Update()
+    {
         if (immuneTimer > 0)
         {
             if (sprite != null)//making sure there is a sprite
             {
-                sprite.color = Color.red;
+                float point = immuneTimer / ImmunePeriod;
+                sprite.color = Color.Lerp(Color.red, Color.white, immuneTimer / ImmunePeriod > .5f ? point : 1 - point);
             }
             immuneTimer -= Time.deltaTime;
         }
-        
         else
+        {
             sprite.color = Color.white;
+        }
     }
 
     // Lowers health by amount 
