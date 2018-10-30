@@ -94,4 +94,14 @@ public class Damagable : MonoBehaviour {
 
         Destroy(gameObject);
     }
+
+    public float GetFlashingPoint()
+    {
+        if(immuneTimer > 0)
+        {
+            float point = immuneTimer / ImmunePeriod;
+            return immuneTimer / ImmunePeriod > .5f ? point : 1 - point;
+        }
+        return 1;
+    }
 }

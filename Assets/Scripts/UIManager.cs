@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    public Text healthText;
+    public List<GameObject> HealthObjects;
     public GameObject enemy;
     public Text enemyText;
     public GameObject restartText;
@@ -50,7 +50,10 @@ public class UIManager : MonoBehaviour {
         }
         restartText.SetActive(player == null);
         // link up to lives from character object 
-        healthText.text = health.ToString();
+        for (int i = 0; i < HealthObjects.Count; i++)
+        {
+            HealthObjects[i].SetActive(i < health);
+        }
 
         enemyText.enabled = (EnemyKillVictory.Count != -1);
         enemy.SetActive(EnemyKillVictory.Count != -1);
