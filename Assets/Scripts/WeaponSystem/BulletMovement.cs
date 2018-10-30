@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour {
 
     private Vector3 velocity;
-    private int damage;
+    protected int damage;
     private float life;
     private BulletPool pool;
 
@@ -43,7 +43,7 @@ public class BulletMovement : MonoBehaviour {
         this.pool = pool;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Damagable other = collision.gameObject.GetComponent<Damagable>();
         if (other != null)
