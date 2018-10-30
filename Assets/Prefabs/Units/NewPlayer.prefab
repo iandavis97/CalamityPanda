@@ -59,7 +59,9 @@ GameObject:
   - component: {fileID: 4809648987606764}
   - component: {fileID: 33675361027975164}
   - component: {fileID: 23739215778450916}
-  m_Layer: 13
+  - component: {fileID: 58215737702536906}
+  - component: {fileID: 114335228150244886}
+  m_Layer: 8
   m_Name: SpinDashModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516864720588450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7, y: -8.7, z: -10}
+  m_LocalPosition: {x: 30.454308, y: 18.130823, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4200556838877652}
@@ -169,6 +171,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &58215737702536906
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893458035639312}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!58 &58380396346855486
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -199,6 +216,18 @@ CircleCollider2D:
   m_Offset: {x: -0.522, y: 0.251}
   serializedVersion: 2
   m_Radius: 1.3
+--- !u!114 &114335228150244886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893458035639312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7e880162ab92840a294d5efca31fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinSpeedForDamage: 50
 --- !u!114 &114504100015904426
 MonoBehaviour:
   m_ObjectHideFlags: 1

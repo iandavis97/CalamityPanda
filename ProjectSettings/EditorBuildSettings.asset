@@ -6,27 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Ingame_UI.unity
-    guid: d46bfe9bb7973754bbe3770783656c8d
-  - enabled: 0
-    path: Assets/Scenes/End_Game_Screen.unity
-    guid: 87f9c54fd1b5aeb4abc15e873234bdd5
-  - enabled: 1
     path: Assets/Scenes/Title_Screen.unity
     guid: 7c51bf80d33c87c479524cee6a28ec6a
-  - enabled: 0
-    path: Assets/Scenes/Prototype10-16.unity
-    guid: c502322cb4d70154c9160dfacb960b67
+  - enabled: 1
+    path: Assets/Scenes/Ingame_UI.unity
+    guid: d46bfe9bb7973754bbe3770783656c8d
   - enabled: 1
     path: Assets/Scenes/Sprite_Testing.unity
     guid: 7bb4d3786cad3bc4ba03fba15f856d75
-  - enabled: 1
-    path: Assets/Scenes/Victory_Screen.unity
-    guid: 5c642ce1dcd77c348a676ce27bd59f28
   - enabled: 1
     path: Assets/Scenes/Hammers_Testing_Scene.unity
     guid: fca8a33442145f942b9d2d6d6fc01ac0
   - enabled: 1
     path: Assets/Scenes/Ian_Level3.unity
     guid: dfaa1098be9e2ac4d8da6440cbb3246a
+  - enabled: 1
+    path: Assets/Scenes/Victory_Screen.unity
+    guid: 5c642ce1dcd77c348a676ce27bd59f28
   m_configObjects: {}
