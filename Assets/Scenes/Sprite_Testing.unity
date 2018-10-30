@@ -1129,7 +1129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: eb3c20d4b5c2f014bb2118a4671ca8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2350,7 +2350,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 923e9a5ac0f189a4c806a4979ce82250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3355,7 +3355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   MaxHealth: 3
+  bloodSplat: {fileID: 0}
+  ImmunePeriod: 0
 --- !u!1 &771823891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,7 +3422,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: eb3c20d4b5c2f014bb2118a4671ca8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4834,7 +4837,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 923e9a5ac0f189a4c806a4979ce82250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4909,7 +4912,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: cf1193a00dd59dc4c88735331fcc6d9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5324,7 +5327,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 923e9a5ac0f189a4c806a4979ce82250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5432,7 +5435,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: eb3c20d4b5c2f014bb2118a4671ca8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5601,7 +5604,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   MaxHealth: 3
+  bloodSplat: {fileID: 0}
+  ImmunePeriod: 0
 --- !u!1 &1223587036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,7 +5671,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 923e9a5ac0f189a4c806a4979ce82250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6285,7 +6291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 923e9a5ac0f189a4c806a4979ce82250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6827,7 +6833,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 923e9a5ac0f189a4c806a4979ce82250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7389,7 +7395,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: eb3c20d4b5c2f014bb2118a4671ca8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7772,7 +7778,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 923e9a5ac0f189a4c806a4979ce82250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7847,7 +7853,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: eb3c20d4b5c2f014bb2118a4671ca8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7922,7 +7928,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: eb3c20d4b5c2f014bb2118a4671ca8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8223,7 +8229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   MaxHealth: 3
+  bloodSplat: {fileID: 0}
+  ImmunePeriod: 0
 --- !u!1 &1739459299
 GameObject:
   m_ObjectHideFlags: 0
@@ -8883,7 +8892,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   MaxHealth: 3
+  bloodSplat: {fileID: 0}
+  ImmunePeriod: 0
 --- !u!4 &1913275209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4709393930351062, guid: 008ce96c7c50c3141864e745f3d6e586,
@@ -9633,7 +9645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   MaxHealth: 3
+  bloodSplat: {fileID: 0}
+  ImmunePeriod: 0
 --- !u!4 &2051692905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4709393930351062, guid: 008ce96c7c50c3141864e745f3d6e586,

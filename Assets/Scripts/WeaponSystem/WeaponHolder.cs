@@ -92,6 +92,10 @@ public class WeaponHolder : MonoBehaviour {
                 return true;
             }
         }
+        if(old == CurrentWeapon)
+        {
+            CurrentWeapon = null;
+        }
         return false;
     }
 

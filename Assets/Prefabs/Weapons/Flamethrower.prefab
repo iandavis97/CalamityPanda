@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Muzzle: {fileID: 4412551833050530}
-  Bullet: {fileID: 1264477174296620, guid: ffa3a241268fbcd48a537262cb6d61b8, type: 2}
+  Bullet: {fileID: 1264477174296620, guid: cd2d3d8503712e34d8b6e1d34367418b, type: 2}
   BulletSpeed: 10
   Range: 5
   Spread: 5

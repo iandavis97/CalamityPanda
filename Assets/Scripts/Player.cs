@@ -86,11 +86,7 @@ public class Player : MonoBehaviour
                 float mod = Vector2.Dot(target, control.velocity) > 0 ? 1 : 2;
                 control.velocity = Vector2.MoveTowards(control.velocity, target, acceleration * mod * Time.fixedDeltaTime);
 
-                // Weapon pickup logic
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Weapon.TryPickUp();
-                }
+
             
                 // Spindash logic
                 if (Input.GetMouseButton(1))
@@ -161,6 +157,16 @@ public class Player : MonoBehaviour
         //     }
         // }
     }
+
+    private void Update()
+    {
+        // Weapon pickup logic
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Weapon.TryPickUp();
+        }
+    }
+
     private void LateUpdate()
     {
         if (Weapon.CurrentState == WeaponHolder.CombatState.Waiting && state != PlayerState.Rolling)

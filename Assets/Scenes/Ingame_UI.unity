@@ -169,6 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - Sprite_Testing
+  - Hammers_Testing_Scene
+  - Ian_Level3
   CurrentLevel: 0
   UI: {fileID: 2002606679}
   VictoryScreen: Victory_Screen
@@ -725,7 +727,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -312.66, y: 167.66}
-  m_SizeDelta: {x: 22.15, y: 22.15}
+  m_SizeDelta: {x: 44, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1754103035
 MonoBehaviour:
