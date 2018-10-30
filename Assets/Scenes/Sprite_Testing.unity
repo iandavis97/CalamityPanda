@@ -3357,7 +3357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   MaxHealth: 3
-  bloodSplat: {fileID: 0}
+  bloodSplat: {fileID: 1917486283528166, guid: c07cceaaa090e5a4dac5c3d0f65a5fdb, type: 2}
   ImmunePeriod: 0
 --- !u!1 &771823891
 GameObject:
@@ -5606,7 +5606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   MaxHealth: 3
-  bloodSplat: {fileID: 0}
+  bloodSplat: {fileID: 1917486283528166, guid: c07cceaaa090e5a4dac5c3d0f65a5fdb, type: 2}
   ImmunePeriod: 0
 --- !u!1 &1223587036
 GameObject:
@@ -8231,7 +8231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   MaxHealth: 3
-  bloodSplat: {fileID: 0}
+  bloodSplat: {fileID: 1917486283528166, guid: c07cceaaa090e5a4dac5c3d0f65a5fdb, type: 2}
   ImmunePeriod: 0
 --- !u!1 &1739459299
 GameObject:

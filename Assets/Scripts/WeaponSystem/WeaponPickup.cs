@@ -14,6 +14,7 @@ public class WeaponPickup : MonoBehaviour {
     public int MaxAmmo = -1;
     public int Volley = 1;
     public int Damage = 1;
+    public bool UseBaseVelocity;
 
     // Internal Properties
     private int currentAmmo;
@@ -76,7 +77,7 @@ public class WeaponPickup : MonoBehaviour {
                 BulletMovement movement = fired.GetComponent<BulletMovement>();
                 if(movement != null)
                 {
-                    movement.SetUp(baseVelocity + (Quaternion.Euler(0, 0, angle) * velocity), Damage, Range / BulletSpeed);
+                    movement.SetUp((UseBaseVelocity ? baseVelocity : Vector3.zero) + (Quaternion.Euler(0, 0, angle) * velocity), Damage, Range / BulletSpeed);
                 }
                 fired.layer = layer;
                 currentAmmo--;

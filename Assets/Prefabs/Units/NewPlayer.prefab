@@ -247,7 +247,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   MaxHealth: 3
   bloodSplat: {fileID: 1348486724237354, guid: 761dcb7e2516e8142bacb66f396e28f7, type: 2}
-  ImmunePeriod: 0.2
+  ImmunePeriod: 0.5
 --- !u!114 &114893474524280864
 MonoBehaviour:
   m_ObjectHideFlags: 1

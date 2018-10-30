@@ -99,13 +99,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Muzzle: {fileID: 4227969102765876}
   Bullet: {fileID: 1264477174296620, guid: ffa3a241268fbcd48a537262cb6d61b8, type: 2}
-  BulletSpeed: 20
+  BulletSpeed: 15
   Range: 15
   Spread: 10
   RateOfFire: 1
   MaxAmmo: -1
   Volley: 5
   Damage: 1
+  UseBaseVelocity: 0
 --- !u!212 &212209942423846316
 SpriteRenderer:
   m_ObjectHideFlags: 1

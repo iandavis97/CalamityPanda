@@ -50,8 +50,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1878720173668978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 107.03, y: -17.2, z: -3}
+  m_LocalRotation: {x: -0, y: -0, z: -0.50569683, w: 0.86271125}
+  m_LocalPosition: {x: -29.409344, y: -73.58071, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4412551833050530}
@@ -106,6 +106,7 @@ MonoBehaviour:
   MaxAmmo: -1
   Volley: 3
   Damage: 1
+  UseBaseVelocity: 1
 --- !u!212 &212871989579220468
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -142,7 +143,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: faea68409dcab2146a17a76523cc3635, type: 3}
-  m_Color: {r: 0.99765015, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

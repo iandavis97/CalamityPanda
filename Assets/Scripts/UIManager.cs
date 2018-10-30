@@ -5,21 +5,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    public GameObject livesText;
-    public GameObject healthText;
-    public GameObject ammoText;
+    public Text healthText;
+    public GameObject enemy;
+    public Text enemyText;
     public GameObject restartText;
     
     private Damagable player;
     private WeaponHolder weapon;
 
     // Temp variables for testing
-    public int lives = 3;
     public int health = 100;
-    public int ammo = 100;
-
-    // Whatever can see player health / ammo / lives
-    public GameObject character;
 
 	void Start () {
         GameObject obj = GameObject.FindGameObjectWithTag("Player");
@@ -55,9 +50,11 @@ public class UIManager : MonoBehaviour {
         }
         restartText.SetActive(player == null);
         // link up to lives from character object 
-        livesText.GetComponent<Text>().text = lives.ToString();
-        healthText.GetComponent<Text>().text = health.ToString();
-        ammoText.GetComponent<Text>().text = ammo.ToString();
+        healthText.text = health.ToString();
+
+        enemyText.enabled = (EnemyKillVictory.Count != -1);
+        enemy.SetActive(EnemyKillVictory.Count != -1);
+        enemyText.GetComponent<Text>().text = EnemyKillVictory.Count.ToString();
     }
 
     public void LevelStart()

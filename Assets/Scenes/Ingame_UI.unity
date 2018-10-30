@@ -544,12 +544,12 @@ GameObject:
   - component: {fileID: 1245300064}
   - component: {fileID: 1245300063}
   m_Layer: 5
-  m_Name: AmmoText
+  m_Name: EnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1245300062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!222 &1245300064
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -843,29 +843,29 @@ GameObject:
   - component: {fileID: 1826575161}
   - component: {fileID: 1826575160}
   m_Layer: 5
-  m_Name: AmmoImage
+  m_Name: EnemyImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1826575159
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1826575158}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1887964614}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -152.4, y: 166.77}
-  m_SizeDelta: {x: 26.17, y: 26.17}
+  m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826575160
 MonoBehaviour:
@@ -886,7 +886,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b14544aba2b75d74c822679a2d072bf3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d94918095a6421449a44480842c8b16e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1045,14 +1045,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b99d2a24c0eca4783baffe4e26d352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesText: {fileID: 841374835}
-  healthText: {fileID: 1900875918}
-  ammoText: {fileID: 1245300061}
+  healthText: {fileID: 1900875920}
+  enemy: {fileID: 1826575158}
+  enemyText: {fileID: 1245300063}
   restartText: {fileID: 1147246727}
-  lives: 3
   health: 100
-  ammo: 100
-  character: {fileID: 0}
 --- !u!114 &2002606677
 MonoBehaviour:
   m_ObjectHideFlags: 0

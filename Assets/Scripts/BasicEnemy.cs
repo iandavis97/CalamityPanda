@@ -44,7 +44,11 @@ public class BasicEnemy : MonoBehaviour
         controller = GetComponent<Rigidbody2D>();
         if (playerRef == null)
         {
-            playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            GameObject play = GameObject.FindGameObjectWithTag("Player");
+            if (play != null)
+            {
+                playerRef = play.GetComponent<Player>();
+            }
         }
         if (Weapon == null)
         {
@@ -131,4 +135,9 @@ public class BasicEnemy : MonoBehaviour
     // {
     //     Destroy(parrySpriteClone);
     // }
+
+    public void MakeAlert()
+    {
+        isAlert = true;
+    }
 }

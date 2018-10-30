@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hammers_Testing_Scene.unity
     guid: fca8a33442145f942b9d2d6d6fc01ac0
+  - enabled: 1
+    path: Assets/Scenes/Ian_Level3.unity
+    guid: dfaa1098be9e2ac4d8da6440cbb3246a
   m_configObjects: {}
