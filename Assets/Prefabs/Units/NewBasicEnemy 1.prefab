@@ -136,8 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638adc7377aa33144b0b5df5f5b9a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   MaxHealth: 1
-  bloodSplat: {fileID: 0}
+  bloodSplat: {fileID: 1348486724237354, guid: 761dcb7e2516e8142bacb66f396e28f7, type: 2}
   ImmunePeriod: 0
 --- !u!114 &114952813075733880
 MonoBehaviour:
